@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="loginPage">
+        <div class="top"></div>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <h3>Login</h3>
+            <mat-form-field id="formfield" appearance="outline" style="margin-left: 50px;">
+                <input matInput type="email" placeholder="Email" name="email" formControlName="email"
+                    [(ngModel)]="user.email">
+                <mat-error *ngIf="email?.hasError('required')">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="email?.hasError('email')">
+                    Email valid email address.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" style="margin-left: 50px;">
+                <input matInput type="password" placeholder="Password" name="password" formControlName="password"
+                    [(ngModel)]="user.password">
+                <mat-error *ngIf="password?.hasError('required')">
+                    Password is required.
+                </mat-error>
+                <mat-error *ngIf="password?.hasError('pattern')">
+                    Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+                    and a number.
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <div>
+                <button mat-raised-button type="submit" [disabled]="!profileForm.valid"
+                    style="margin-left: 120px; background-color:#092745">Login</button>
+            </div>
+            <br><br>
+            <div id="signup">
+                <span style="text-decoration: dashed;">Don't have an account?</span>
+                <a routerLink="/register">
+                    <button mat-raised-button
+                        style="margin-left: 20px; background-color:darkslateblue;">SignUp</button></a>
+            </div>
+        </form>
+        <div class="footer"></div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 class="head">FAVOURITES</h1>
+    <div id="movieContainer" >
+      <div class="card" *ngFor="let data of favourites">
+          <img  src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}">
+          <div class="descriptions">
+              <h1>{{data.original_title}}</h1>
+              <br>
+              <p>Release Date: {{data.release_date}}</p>
+              <p>Rating: {{data.vote_average}}</p>
+              <button (click)="movieDetails(data)">
+                    More info
+              </button> <br><br>
+              <button style="color: black; background-color: rgb(156, 28, 28);" (click)="deleteMovie(data)">Remove</button>
+
+          </div>
+      </div>
+  </div>
+</div>
